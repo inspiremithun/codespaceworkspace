@@ -1,0 +1,7 @@
+#site wide play book
+---
+ # - name: frontend play book
+ #   import_playbook: frontend.yml
+  - name: catalogue play book
+    import_playbook: catalog.yml
+...
