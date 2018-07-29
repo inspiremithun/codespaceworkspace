@@ -1,14 +1,5 @@
-[catalogue]
-192.168.61.15
-
-[catalogueDB]
-192.168.61.14
-
 [local]
 localhost ansible_connection=local
-
-[cart]
-192.168.61.15
 
 [lb]
 lb
@@ -17,8 +8,6 @@ lb
 app1
 app2
 
-[frontend]
-192.168.61.15
 
 [db]
 db

@@ -1,10 +1,10 @@
 ---
 - name: catalogue  server 
-  hosts: catalogue
+  hosts: catalogueDB
   become: true
   gather_facts: true
   roles:
     - geerlingguy.mysql
   
-
-...
+    
+...    

@@ -1,7 +1,16 @@
 #site wide play book
 ---
- # - name: frontend play book
- #   import_playbook: frontend.yml
+#  - name: frontend play book
+#    import_playbook: frontend.yml
+ # - name: catalogueDB 
+ #   import_playbook: catalogueDB.yml
   - name: catalogue play book
-    import_playbook: catalog.yml
+    import_playbook: catalogue.yml
+#  - name: deploy PHP
+#    import_playbook: app.yml
+#  - name: HaProxy
+#    import_playbook: lb.yml
+#  - name: cart 
+#    import_playbook: cart.yml
+   
 ...

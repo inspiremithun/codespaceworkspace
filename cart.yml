@@ -1,0 +1,8 @@
+---
+ - name: cart app
+   hosts: cart
+   become: true
+   gather_facts: true
+   roles:
+     - cart
+...

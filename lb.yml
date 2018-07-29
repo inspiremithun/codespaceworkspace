@@ -1,0 +1,9 @@
+#load balancer 
+---
+  - name: Ha proxy for load balancer
+    hosts: lb
+    become: true
+    roles:
+      - geerlingguy.haproxy
+...
+

@@ -1,2 +1,4 @@
 ---
 # tasks file for catalogue
+- import_tasks: install.yml
+...

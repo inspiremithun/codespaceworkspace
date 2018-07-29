@@ -1,0 +1,13 @@
+---
+  - name : Install Catalogue 
+    hosts: catalogue 
+    become: true
+    gather_facts: true
+    roles:
+      - catalogue
+    environment:
+      PATH: "/opt/go/bin:/usr/local/go/bin/go:/usr/local/go:{{ansible_env.PATH}}"
+      GOPATH: "/opt/go"
+      GOROOT: "/usr/local/go"  
+    
+...    

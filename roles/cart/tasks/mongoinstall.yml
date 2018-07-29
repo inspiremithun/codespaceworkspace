@@ -1,0 +1,29 @@
+#install mangoDB
+---
+  - name: apt
+    sudo: yes
+    apt_key: 
+      keyserver: "hkp://keyserver.ubuntu.com:80"
+      id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+      state: present
+  - name: Add mongo sources list
+    sudo: yes
+    lineinfile: >
+      line="deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse"
+      dest=/etc/apt/sources.list.d/mongodb-org-3.0.list
+      state=present
+      create=yes    
+  - name: Install mongo
+    sudo: yes
+    apt: name=mongodb-org state=present      
+     
+    
+ 
+      
+  - name: start mongo service       
+    service:
+      name: mongod
+      state: started
+    
+    
+...
