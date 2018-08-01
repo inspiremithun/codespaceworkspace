@@ -17,11 +17,18 @@
  - debug: msg="{{ goroot.stdout }}"
  - debug: msg="{{ goroot.stderr }}"
  
+ - name: check current golang version
+   command: bash -c "/usr/local/go/bin/go version | sed -e 's/go version go//g' |cut -d' ' -f1"
+   ignore_errors: yes
+   register: go_version
+   changed_when: false
+ - debug: msg="go_version = {{go_version.stdout}}"
+ 
  - name: install pre requist
    apt:
      name: "{{ item }}"
      state: present
-     update_cache: yes
+     #update_cache: yes
    with_items:  
       #- gtar
       - gzip
@@ -48,5 +55,38 @@
      dest: /usr/local
      remote_src: yes
      
+ - name: which go
+   command: bash -c "/usr/local/go/bin/go  which go"
+   register: which_go
+ - debug: msg="which_go = {{which_go.stdout}}"
+ 
+ - name: Install gvt
+   command: go get -u github.com/FiloSottile/gvt
+   become: true
+   
+# - name: check gvt
+#   command: which gvt
+#   register: which_gvt
+# - debug: msg="which gvt = {{which_gvt.stdout}}"
+ 
+ - name: Setup the repo for microservices demo
+   file:
+     path: /opt/go/src/github.com/microservices-demo
+     state: directory
+     mode: 0777
+     
+ - name: setup the repo
+   git:
+    repo: "https://github.com/udbc/catalogue.git"
+    dest: /opt/go/src/github.com/microservices-demo
+    
+ #- name: compile the code 
+   
+    
+   
+   
+   
 
+
+       
 ...

@@ -2,12 +2,15 @@
   - name : Install Catalogue 
     hosts: catalogue 
     become: true
+    become_method: sudo
     gather_facts: true
     roles:
-      - catalogue
-    environment:
-      PATH: "/opt/go/bin:/usr/local/go/bin/go:/usr/local/go:{{ansible_env.PATH}}"
-      GOPATH: "/opt/go"
-      GOROOT: "/usr/local/go"  
+      - fubarhouse.golang
+     # - golang
+     # - catalogue
+   # environment:
+   #   PATH: "/opt/go/bin:/usr/local/go/bin/go:/usr/local/go:{{ansible_env.PATH}}"
+   #   GOPATH: "/opt/go"
+   #   GOROOT: "/usr/local/go"  
     
 ...    
